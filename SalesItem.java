@@ -61,8 +61,9 @@ public class SalesItem
      */
     public boolean addComment(String author, String text, int rating)
     {
+        //Question 16 for it to return false when we put more than 6 u change it to false
         if(ratingInvalid(rating)) {  // reject invalid ratings
-            return false;
+            return true;
         }
         
         if(findCommentByAuthor(author) != null) {  // reject mutiple comments by same author
