@@ -63,7 +63,7 @@ public class SalesItem
     {
         //Question 16 for it to return false when we put more than 6 u change it to false
         if(ratingInvalid(rating)) {  // reject invalid ratings
-            return true;
+            return false;
         }
         
         if(findCommentByAuthor(author) != null) {  // reject mutiple comments by same author
