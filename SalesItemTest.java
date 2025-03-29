@@ -106,7 +106,23 @@ public class SalesItemTest
         comment1.getFullDetails();
         comment1.getRating();
     }
+    //Question 20 just tested different tests.
+    @Test
+    public void testingNewTests()
+    {
+        SalesItem salesIte1 = new SalesItem("laptop", 500);
+        assertEquals(-3, salesIte1.addComment("ilsa", "Terrible product", -3));
+        assertEquals(5, salesIte1.addComment("kimia", "Awesome", 5));
+        assertEquals(5, salesIte1.addComment("beya", "good", 5));
+        Comment comment1 = salesIte1.findMostHelpfulComment();
+        comment1.getFullDetails();
+        comment1.getRating();
+        assertEquals(0, salesIte1.addComment("fatima", "okay product", 0));
+        salesIte1.addComment("kim", "not bad", 0);
+        salesIte1.findMostHelpfulComment();
+    }
 }
+
 
 
 
