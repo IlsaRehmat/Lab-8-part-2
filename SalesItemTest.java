@@ -94,7 +94,20 @@ public class SalesItemTest
         assertEquals(7, salesIte1.addComment("ilsa", "good", 7));
         assertEquals(5, salesIte1.addComment("ilsa", "good good", 5));
     }
+    //Question 19
+    @Test
+    public void findMostHelpfulComment()
+    {
+        SalesItem salesIte1 = new SalesItem("laptop", 1000);
+        assertEquals(5, salesIte1.addComment("ilsa", "good", 5));
+        assertEquals(4, salesIte1.addComment("kimia", "ok", 4));
+        Comment comment1 = salesIte1.findMostHelpfulComment();
+        comment1.getAuthor();
+        comment1.getFullDetails();
+        comment1.getRating();
+    }
 }
+
 
 
 
