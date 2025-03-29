@@ -116,9 +116,11 @@ public class SalesItem
         System.out.println("Price: " + priceString(price));
         System.out.println();
         System.out.println("Customer comments:");
-        for(Comment comment : comments) {
-            System.out.println("-------------------------------------------");
-            System.out.println(comment.getFullDetails());
+        int i =0;
+        while(i<comments.size()){
+            System.out.println("---------------------------------");
+            System.out.println(comments.get(i).getFullDetails());
+            i++;
         }
         System.out.println();
         System.out.println("===========================================");
@@ -131,13 +133,17 @@ public class SalesItem
      */
     public Comment findMostHelpfulComment()
     {
-        Iterator<Comment> it = comments.iterator();
-        Comment best = it.next();
-        while(it.hasNext()) {
-            Comment current = it.next();
+        if(comments.isEmpty()){
+            return null;
+        }
+        int i=1;
+        Comment best= comments.get(0);
+        while(i<comments.size()) {
+            Comment current = comments.get(i);
             if(current.getVoteCount() > best.getVoteCount()) {
                 best = current;
             }
+            i++;
         }
         return best;
     }
@@ -158,10 +164,12 @@ public class SalesItem
      */
     private Comment findCommentByAuthor(String author)
     {
-        for(Comment comment : comments) {
-            if(comment.getAuthor().equals(author)) {
-                return comment;
+        int i = 0;
+        while(i<comments.size()){
+            if(comments.get(i).getAuthor().equals(author)) {
+                return comments.get(i);
             }
+            i++;
         }
         return null;
     }
